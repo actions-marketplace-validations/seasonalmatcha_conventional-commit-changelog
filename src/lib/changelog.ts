@@ -4,14 +4,18 @@ import { indexCommitByType, sortCommitBy } from '../utils';
 const generateDetailBody = (_body: string | null, _refs: string[]) => {
   if (!_body && !_refs.length) return '';
 
-  const body = _body ? `<p>${_body}</p>${_refs.length > 0 ? '\n' : ''}` : '';
-  const note = _refs.length ? '\n  <p>Notes:</p>\n' : '';
-  const refs = _refs.length > 0 ? _refs.map((ref) => `  * ${ref}`).join('\n\n') : '';
+  const body = _body
+    ? _body
+        .split('\n')
+        .map((str) => `\n  <p>${str}</p>`)
+        .join('')
+    : '';
+  const note = _refs.length ? '\n  <strong>Notes:</strong>\n\n' : '';
+  const refs = _refs.length > 0 ? _refs.map((ref) => `    * ${ref}`).join('\n') : '';
 
   return `
   <details>
-  <summary>Details</summary>
-  ${body}${note}${refs}
+  <summary>Details</summary>${body}${note}${refs}
   </details>
 `;
 };
