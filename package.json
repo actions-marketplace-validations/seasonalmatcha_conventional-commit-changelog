@@ -4,6 +4,10 @@
   "description": "Changelog generator from git tag using conventional commit",
   "main": "dist/index.js",
   "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf dist",
+    "compile": "ncc build src/index.ts -o dist -m",
+    "dev": "ts-node src/index.ts",
     "husky:install": "npx husky install",
     "postinstall": "npm run husky:install"
   },
@@ -20,7 +24,11 @@
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
+    "@vercel/ncc": "^0.33.1",
     "husky": "^7.0.4",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
   }
 }
