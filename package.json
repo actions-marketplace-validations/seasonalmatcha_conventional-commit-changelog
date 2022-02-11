@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && npm run compile && npm run copy-config",
     "clean": "rimraf dist",
-    "compile": "ncc build src/index.ts -o dist -m",
+    "compile": "ncc build src/index.ts -o dist -m --license LICENSE.txt",
     "copy-config": "cp src/defaultConfig.json dist/",
     "dev": "ts-node src/index.ts",
     "lint": "eslint .",
