@@ -13,3 +13,5 @@ export interface IGetCommitParams {
   from: string;
   to: string;
 }
+
+export type IndexedByType = Record<string, ParsedCommit[]>;
