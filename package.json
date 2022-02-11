@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Changelog generator from git tag using conventional commit",
   "main": "dist/index.js",
-  "scripts": {},
+  "scripts": {
+    "husky:install": "npx husky install",
+    "postinstall": "npm run husky:install"
+  },
   "keywords": [
     "Github",
     "Action",
@@ -13,5 +16,8 @@
     "Tag Changelog"
   ],
   "author": "Seasonal Matcha <seasonalmatcha@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^7.0.4"
+  }
 }
