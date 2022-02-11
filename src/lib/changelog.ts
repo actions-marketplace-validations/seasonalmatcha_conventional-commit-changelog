@@ -1,13 +1,18 @@
 import { GenerateChangelog, ParsedCommit } from '../types';
 import { indexCommitByType, sortCommitBy } from '../utils';
 
-const generateDetailBody = (body: string | null, refs: string[]) => {
+const generateDetailBody = (_body: string | null, _refs: string[]) => {
+  if (!_body && !_refs.length) return '';
+
+  const body = _body ? `<p>${_body}</p>${_refs.length > 0 ? '\n' : ''}` : '';
+  const note = _refs.length ? '\n  <p>Notes:</p>\n' : '';
+  const refs = _refs.length > 0 ? _refs.map((ref) => `  * ${ref}`).join('\n\n') : '';
+
   return `
   <details>
   <summary>Details</summary>
-  ${body && `<p>${body}</p>\n`}  
-  ${refs.length ? '<p>Notes:</p>\n' : ''}
-  ${refs.length > 0 ? refs.map((ref) => `* ${ref}`).join('\n\n') : ''}
+  ${body}${note}${refs}
+  </details>
 `;
 };
 
@@ -15,12 +20,12 @@ const convertCommitToString = (
   { author, body, hash, references, scope: _scope, subject }: ParsedCommit,
   repoUrl: string | null,
 ) => {
-  const commitUrl = repoUrl ? ` ([${author}](${repoUrl}/commit/${hash}))` : `(${author})`;
-  const scope = _scope ? `**${_scope}:** ` : '';
+  const commitUrl = repoUrl ? ` ([${author}](${repoUrl}/commit/${hash}))` : ` (${author})`;
+  const scope = _scope ? `**${_scope}**: ` : '';
   const refs = references.map(({ action, issue, prefix }) => `${action}: ${prefix}${issue}`);
-  const details = generateDetailBody(body, refs);
+  const details = generateDetailBody(body, refs) || '';
 
-  return `* ${scope}${subject}${commitUrl}${commitUrl}${details}`;
+  return `* ${scope}${subject}${commitUrl}${details}`;
 };
 
 export const generateChangelog: GenerateChangelog = ({
