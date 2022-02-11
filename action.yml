@@ -1,4 +1,4 @@
-name: 'Conventional Changelog Generator'
+name: 'Conventional Changelog'
 description: 'Generate a changelog from given tag references'
 author: 'Seasonal Matcha <seasonalmatcha@gmail.com>'
 branding:
