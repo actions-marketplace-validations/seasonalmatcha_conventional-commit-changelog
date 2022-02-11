@@ -1,5 +1,5 @@
 import { Note } from '@conventional-commits/parser';
-import { IndexedByType, ParsedCommit } from '../types';
+import { CommitSorter, CommitSortOrder, IndexedByType, ParsedCommit } from '../types';
 
 const BREAKING_TYPE = 'breaking';
 const BREAKING_CHANGE_TITLE = 'BREAKING CHANGE';
@@ -17,4 +17,9 @@ export const indexCommitByType = (commits: ParsedCommit[]) => {
   }, {});
 
   return indexedType;
+};
+
+export const sortCommitBy: Record<CommitSortOrder, CommitSorter> = {
+  asc: ({ date: dateA }, { date: dateB }) => (dateA < dateB ? -1 : 1),
+  desc: ({ date: dateA }, { date: dateB }) => (dateA > dateB ? -1 : 1),
 };

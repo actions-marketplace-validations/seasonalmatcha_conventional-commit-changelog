@@ -15,3 +15,7 @@ export interface IGetCommitParams {
 }
 
 export type IndexedByType = Record<string, ParsedCommit[]>;
+
+export type CommitSortOrder = 'asc' | 'desc';
+
+export type CommitSorter = (a: ParsedCommit, b: ParsedCommit) => -1 | 1;
