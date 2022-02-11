@@ -19,3 +19,16 @@ export type IndexedByType = Record<string, ParsedCommit[]>;
 export type CommitSortOrder = 'asc' | 'desc';
 
 export type CommitSorter = (a: ParsedCommit, b: ParsedCommit) => -1 | 1;
+
+export type GroupLabel = {
+  title: string;
+  types: string[];
+};
+
+export type GenerateChangelog = (params: {
+  commits: ParsedCommit[];
+  repositoryUrl: string | null;
+  typeLabels: GroupLabel[];
+  emptyMessage?: string;
+  sortOrder?: CommitSortOrder;
+}) => string;
