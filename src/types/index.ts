@@ -37,3 +37,9 @@ export type Config = {
   typeLabels: GroupLabel[];
   sortOrder?: CommitSortOrder;
 };
+
+export type Generate = (params: {
+  from: string;
+  to: string;
+  configFile: string;
+}) => Promise<string>;
