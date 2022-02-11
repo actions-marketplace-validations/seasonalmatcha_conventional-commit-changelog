@@ -4,9 +4,10 @@
   "description": "Changelog generator from git tag using conventional commit",
   "main": "dist/index.js",
   "scripts": {
-    "build": "npm run clean && npm run compile",
+    "build": "npm run clean && npm run compile && npm run copy-config",
     "clean": "rimraf dist",
     "compile": "ncc build src/index.ts -o dist -m",
+    "copy-config": "cp src/defaultConfig.json dist/",
     "dev": "ts-node src/index.ts",
     "lint": "eslint .",
     "husky:install": "npx husky install",
