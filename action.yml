@@ -1,0 +1,19 @@
+name: 'Conventional Changelog Generator'
+description: 'Generate a changelog from given tag references'
+author: 'Seasonal Matcha <seasonalmatcha@gmail.com>'
+branding:
+  icon: 'file-plus'
+  color: 'blue'
+inputs:
+  from:
+    description: 'Tag name or reference for the starting point'
+    required: true
+  to:
+    description: 'Tag name or reference for the ending'
+    required: true
+outputs:
+  changelog:
+    description: 'Changelog in markdown format'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
