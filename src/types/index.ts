@@ -8,3 +8,8 @@ export type ParsedCommit = {
   date: Date;
   hash: string;
 } & ConventionalChangelogCommit;
+
+export interface IGetCommitParams {
+  from: string;
+  to: string;
+}
