@@ -10,7 +10,7 @@ steps:
     with:
       fetch-depth: 0
 
-  - uses: seasonalmatcha/conventional-changelog-action@latest
+  - uses: seasonalmatcha/conventional-commit-changelog@latest
     id: changelog
     with:
       from: v1.0.0
