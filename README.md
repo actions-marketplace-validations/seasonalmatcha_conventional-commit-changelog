@@ -22,10 +22,11 @@ The output can be accessed in `${{ steps.changelog.outputs.changelog }}`
 
 ### Inputs
 
-| Input | Description                                  | Required |
-| ----- | -------------------------------------------- | -------- |
-| from  | Tag name or reference for the starting point | ✔        |
-| to    | Tag name or reference for the ending         | ✔        |
+| Input       | Description                                          | Required |
+| ----------- | ---------------------------------------------------- | -------- |
+| from        | Tag name or reference for the starting point         | ✔        |
+| to          | Tag name or reference for the ending                 | ✔        |
+| config-file | Path to custom config file (relative to dist folder) |          |
 
 ### Outputs
 
