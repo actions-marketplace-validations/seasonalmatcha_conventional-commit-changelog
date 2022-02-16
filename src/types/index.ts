@@ -36,6 +36,7 @@ export type GenerateChangelog = (params: {
 export type Config = {
   typeLabels: GroupLabel[];
   sortOrder?: CommitSortOrder;
+  emptyMessage?: string;
 };
 
 export type Generate = (params: {
