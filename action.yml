@@ -11,6 +11,9 @@ inputs:
   to:
     description: 'Tag name or reference for the ending'
     required: true
+  config-file:
+    description: 'Path to custom config file'
+    required: false
 outputs:
   changelog:
     description: 'Changelog in markdown format'

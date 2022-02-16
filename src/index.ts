@@ -6,7 +6,8 @@ const run = async () => {
   try {
     const from = getInput('from');
     const to = getInput('to');
-    const configFile = path.join(__dirname, 'defaultConfig.json');
+    const configFilePath = getInput('config-file') || 'defaultConfig.json';
+    const configFile = path.join(__dirname, configFilePath);
 
     const changelog = await generate({ from, to, configFile });
     setOutput('changelog', changelog);
