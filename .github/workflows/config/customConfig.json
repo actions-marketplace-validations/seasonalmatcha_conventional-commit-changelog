@@ -1,0 +1,50 @@
+{
+  "typeLabels": [
+    {
+      "title": "⚡️ Careful! Somethings are breaking",
+      "types": ["breaking"]
+    },
+    {
+      "title": "🚀 New Features! To the moon!",
+      "types": ["feat"]
+    },
+    {
+      "title": "💊 Bugfixes: Sorry I messed up",
+      "types": ["fix"]
+    },
+    {
+      "title": "🧹 Chores - Cleanup cleanup",
+      "types": ["chore"]
+    },
+    {
+      "title": "♻️ Refactors - for better future",
+      "types": ["refactor"]
+    },
+    {
+      "title": "🧑‍🔧 Performance Improvements",
+      "types": ["perf"]
+    },
+    {
+      "title": "🥼 Testing",
+      "types": ["test"]
+    },
+    {
+      "title": "🚢 Ship it ship it!",
+      "types": ["build"]
+    },
+    {
+      "title": "♾️ Continuous Integration - Never Stop!",
+      "types": ["ci"]
+    },
+    {
+      "title": "💃 Styling - A little bit makeover",
+      "types": ["style"]
+    },
+    {
+      "title": "Commits - Because I believe in myself",
+      "types": ["commit"]
+    }
+  ],
+  "sortOrder": "desc",
+  "emptyMessage": "No Changes"
+}
