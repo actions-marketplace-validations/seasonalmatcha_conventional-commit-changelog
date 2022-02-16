@@ -1,0 +1,35 @@
+name: Generate Changelog
+
+on:
+  workflow_dispatch:
+    inputs:
+      from:
+        description: The starting point reference
+        required: true
+
+      to:
+        description: The ending point reference
+        required: false
+
+      config-file:
+        description: Path to custom config file
+        required: false
+
+jobs:
+  generate-changelog:
+    name: Generate Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - id: generate_changelog
+        uses: ./
+        with:
+          from: ${{ github.event.inputs.from }}
+          to: ${{ github.event.inputs.to }}
+          config-file: ${{ github.event.inputs.config-file }}
+
+      - name: Output
+        run: echo "${{ steps.generate_changelog.outputs.changelog }}"
