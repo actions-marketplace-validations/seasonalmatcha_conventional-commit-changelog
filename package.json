@@ -1,6 +1,6 @@
 {
   "name": "conventional-commit-changelog",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "Changelog generator from git tag using conventional commit",
   "main": "dist/index.js",
   "scripts": {
